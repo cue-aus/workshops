@@ -1,0 +1,47 @@
+__author__ = 'Cue'
+temp_file = open("temp.txt","w")
+print("first line",file=temp_file)
+print("second line",file=temp_file)
+print("third line",file=temp_file)
+print("fourth line",file=temp_file)
+temp_file.close()
+print("====")
+temp_file = open("temp.txt","r")
+for line in temp_file:
+    line = line.strip() #get rid of \n
+    print(line)
+temp_file.close()
+print("====")
+temp_file = open("temp.txt","r")
+my_str = temp_file.read()
+print(my_str)
+print("====")
+temp_file = open("temp.txt","r")
+line = temp_file.readline()
+print(line)
+temp_file.close()
+print("====")
+temp_file = open("temp.txt","r")
+lines = temp_file.readlines() #a list of strings
+print(lines)
+for x in lines:
+    x = x.strip()
+    print(x)
+temp_file.close()
+print("====")
+my_list = ['first line\n', 'second line\n', 'third line\n', 'fourth line\n']
+out_file = open('out.txt','w')
+out_file.writelines(my_list)
+out_file.close()
+print("====")
+stock_file = open('stock.txt','r')
+for line in stock_file:
+    line = line.strip()
+    #print(line)
+    split_line = line.split(',')
+    print('Name:', split_line[0])
+    print('Year:',split_line[1])
+    print('Price: ${:.2f}'.format(float(split_line[2])))
+    print()
+stock_file.close()
+
